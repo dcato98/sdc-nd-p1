@@ -25,19 +25,19 @@ The goals of this project are to:
 
 My pipeline consisted of 6 steps. First, I converted the images to grayscale (image 1) and applied a Gaussian blur (image 2).
 
-![alt text][image1]
+![Grayscale][image1]
 Image 1. Grayscale (above) and Image 2. Gaussian Blur (below)
-![alt text][image2]
+![Gaussian Blur][image2]
 
 Next, I passed the image through a Canny edge detection algorithm (image 3), tweaking the parameters until satisfied that the edges of the lanes were being detected while minimizing the number of extraneous lines. After this, I masked the image to include only a the lower part of the image where lanes are expected in order to further reduce the extraneous lines (image 4). 
-![alt text][image3]
+![Canny Edges][image3]
 Image 3. Canny Edges (above) and Image 4. Masked Edges (below)
-![alt text][image4]
+![Masked Edges][image4]
 
 In order to draw a single line on the left and right lanes, I modified the `weighted_hough_lane_lines` function by filtering out lines with a slope less than a tuned value and then using slope to separate left and right lane lines. Next, I weighted each line by its length before averaging the lines to reduce the impact of small lines that were still occasionally incorrectly detected (image 5). Finally, I overlaid these lines on top of the original image to produce the final result (image 6).
-![alt text][image5]
+![Hough Lines][image5]
 Image 5. Hough Lines (above) and Image 6. Final Output (below)
-![alt text][image6]
+![Final Output][image6]
 
 ### 2. Identify potential shortcomings with your current pipeline
 
